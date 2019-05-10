@@ -11,19 +11,19 @@ var map = new mapboxgl.Map({
 map.addControl(new mapboxgl.NavigationControl());
 
 //add popup
-map.on('click',function(e)) {
+map.on('click', function(e) {
   var features = map.queryRenderedFeatures(e.point, {
-    layers:['avgfeeforwebmap']
+    layers: ['avgfeeforwebmap']
   });
+
   if (!features.length){
     return;
   }
-}
 
-var feature = features[0];
+  var feature = features[0];
 
-var popup = new napboxgl.Popup({offset:[0,-15]})
-  .setLngLat([station.Lng, station.Lat])
-  .setHTML('<h3>' + feature.Address + '</h3><p>' + feature.Price + '</p>')
-  .addTo(map);
-})
+  var popup = new mapboxgl.Popup({ offset:[0, -15]})
+    .setLngLat([station.Lng, station.Lat])
+    .setHTML('<h3>' + feature.Address + '</h3><p>' + feature.Price + '</p>')
+    .addTo(map);
+});
