@@ -1,4 +1,4 @@
-# webmappingfinal
+# Web Mapping Final Project
 ##Vehicle Emissions Test Price Map for Salt Lake County, Utah, USA
 ### 
 I built a map for citizens to quickly find the cheapest and nearest testing stations in Salt Lake County. The emissions test is mandatory and needs to be done every single year, so it's useful to 
