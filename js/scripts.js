@@ -5,11 +5,11 @@ mapboxgl.accessToken = 'pk.eyJ1IjoianozMzA5IiwiYSI6ImNqbGR4amJwMjBnODkza3V2ZzFxM
 var map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/mapbox/dark-v10',
-  center: [-111.905834, 40.670030],
+  center: [-111.89697,40.67009],
   zoom: 14.5
 });
 
-//add directions
+//add directions on top right of the map
 map.addControl(new MapboxDirections({
   accessToken: mapboxgl.accessToken
 }), 'top-right');
@@ -17,8 +17,16 @@ map.addControl(new MapboxDirections({
 //add NavigationControl
 map.addControl(new mapboxgl.NavigationControl());
 
+// Add geolocate control to the map.
+map.addControl(new mapboxgl.GeolocateControl({
+  positionOptions: {
+    enableHighAccuracy: true
+  },
+  trackUserLocation: true
+}));
 
-//add circle
+
+//add each station as a circle
 map.on('load', function() {
   //add source
   map.addSource('pointssource', {
@@ -26,15 +34,15 @@ map.on('load', function() {
     data: 'https://raw.githubusercontent.com/jz3309/ADS/master/avgfee.geojson'
   });
 
-  //add label
+  //add station's address as a label
   map.addLayer({
     id: "poi-labels",
     type: "symbol",
     source: "pointssource",
     layout: {
-      "text-field": ["get", "Address"],
+      "text-field": ["get", "StationName"],
       "text-font": ["Lato Black"],
-      "text-offset": [0, 1.5],
+      "text-offset": [0, 2.5],
       "text-size": 8,
       "text-allow-overlap": true,
       "text-justify": "center",
@@ -53,11 +61,8 @@ map.on('load', function() {
     type: 'circle',
     source: 'pointssource',
     paint: {
-      // make circles larger as the user zooms from z12 to z22
-      //circle-radius': {
-      //'base': 5,
-      //'stops': [[10.5, 5], [16, 20]]
-      //color circles by city
+      // make circles larger as the user zooms
+
       'circle-stroke-width': 5,
       'circle-stroke-color': '#f7df26',
       'circle-color': "#f7df26",
@@ -65,8 +70,8 @@ map.on('load', function() {
       'circle-radius': {
         'base': 0.8,
         'stops': [
-          [13.5, 2.5],
-          [17, 10]
+          [12.5, 2.5],
+          [18, 10]
         ]
       }
     },
@@ -74,7 +79,7 @@ map.on('load', function() {
   });
 });
 
-//add popup when hover to show the address and price for each station
+//add popup when hover to show more information
 var popup = new mapboxgl.Popup({});
 
 map.on('mouseenter', 'stationpoints', function(e) {
@@ -106,11 +111,12 @@ map.on('mouseleave', 'stationpoints', function() {
 });
 
 
+//add slider to filter the price
 document.getElementById('slider').addEventListener('input', function(e) {
   var fee = parseInt(e.target.value);
   // update the map
   map.setFilter('stationpoints', ['<', ['number', ['get', 'AvgTestFees']], fee]);
 
-  // update text in the UI
+  // update text when slide the bar
   document.getElementById('fee-filter').innerText = fee
 });

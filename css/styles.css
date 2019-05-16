@@ -10,6 +10,14 @@ body {
   width: 100%;
 }
 
+#map-guidance{
+  position:fixed;
+  top:233px;
+  left:1365px;
+  width: 280px;
+  height: 500px;
+}
+
 #title {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 100px;
@@ -34,7 +42,7 @@ body {
 .map-overlay .map-overlay-inner {
   background-color: #000;
   border-radius: 3px;
-  height: 360px;
+  height: 390px;
   left: 0px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.90);
 }
@@ -76,7 +84,7 @@ body {
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 1px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .map-overlay p {
@@ -96,7 +104,7 @@ body {
   width: 100%;
   position: relative;
   margin: 0;
-  cursor: ew-resize;
+  cursor: resize;
 }
 
 .mapboxgl-popup {
@@ -134,12 +142,10 @@ h5 {
 }
 
 h6 {
-  font-size: 15px;
-  line-height: 40px;
-  display: block;
-  margin: 0 0 8px;
+  font-size: 12px;
+  line-height: 14px;
+  margin: 0 0 5px;
   color: #fff;
-  font-style: oblique;
   font-family: arial;
   padding-left: 10px;
   padding-right: 10px;
@@ -166,7 +172,7 @@ input[type=range]::-ms-thumb {
   border-radius: 50%;
   background: #ADADAD;
   margin-top: -2px;
-  box-shadow: 0 .125em .125em #ADADAD);
+  box-shadow: 0 .125em .125em #ADADAD)
 }
 
 input[type=range]::-ms-fill-lower {
