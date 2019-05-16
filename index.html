@@ -1,42 +1,55 @@
 <!doctype html>
 
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
 
   <title>FinalProject Emissions test stations map</title>
   <meta name="description" content="The HTML5 Herald">
   <meta name="author" content="SitePoint">
+  <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.0.0/mapbox-gl-geocoder.min.js'></script>
+  <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.0.0/mapbox-gl-geocoder.css' type='text/css' />
 
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css' rel='stylesheet' />
   <link rel="stylesheet" href="css/styles.css?v=1.0">
-  <style>
-      body { margin:0; padding:0; }
-      #map { position:absolute; top:1px; bottom:1px; width:100%; }
-  </style>
 
 </head>
+
 <body>
+  <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.0/mapbox-gl-directions.js'></script>
+  <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.0/mapbox-gl-directions.css' type='text/css' />
 
-<div id='map'></div>
+  <div id='map'></div>
+  <div id='geocoder' class='geocoder'></div>
 
-<div class='map-overlay top'>
-<div class='map-overlay-inner'>
-<h2>Average Vehicle Emissions Test Price at Salt Lake County, Utah, USA</h2>
-<h4>This map shows all the emissions test stations in Salt lake county.You can click on the marker to find the address and average price.
-  Differnet cities are marked by different color.</h4>
+  <div class='map-overlay top'>
+    <div class='map-overlay-inner'>
+      <h2>Vehicle</h2>
+      <h1>Emissions</h1>
+      <h3>Test Price Map for Salt Lake County, Utah, USA</h3>
+      <p>Vehicles registered in Salt Lake County with model years less than six years old are required to have an emission test once every two years.
+        Vehicles in this category that have even-numbered model years must have an emission test in even-numbered years,
+        and vehicles that have odd-numbered model years must have an emission test in odd-numbered years.<a href="https://dmv.utah.gov/motorcarriers/inspection-requirements">
+          2019 Salt Lake County Emissions Requirements</a></p>
 
-</div>
 
-</div>
+
+      <div class='session' id='sliderbar'>
+        <h5>Price
+          < $<label id='fee-filter' />
+        </h5>
+        <input id='slider' class='row' type='range' min='10' max='70' step='1' value='30' />
+      </div>
+
+    </div>
+
+  </div>
 
 
   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
-  <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-  <script src="js/stationdata.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="js/scripts.js"></script>
 </body>
+
 </html>

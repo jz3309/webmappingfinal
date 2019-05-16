@@ -1,53 +1,190 @@
+body {
+  margin: 0;
+  padding: 0;
+}
 
+#map {
+  position: absolute;
+  top: 1px;
+  bottom: 1px;
+  width: 100%;
+}
 
-#title{
-  font-family: "Arial Black", Gadget, sans-serif;
-font-size: 22px;
-letter-spacing: 2px;
-word-spacing: 2px;
-color: #FFFE52;
-font-weight: normal;
-text-decoration: none;
-font-style: normal;
-font-variant: normal;
-text-transform: none;
+#title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 100px;
+  letter-spacing: 2px;
+  word-spacing: 2px;
+  color: #fff;
+  font-weight: normal;
+  text-decoration: none;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
 }
 
 .map-overlay {
-font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-position: absolute;
-width: 25%;
-height:100%;
-top: 0;
-left: 0;
-padding: 10px;
+  position: absolute;
+  width: 360px;
+  height: 500px;
+  top: 0px;
+  left: 0px;
 }
 
 .map-overlay .map-overlay-inner {
-background-color: #fff;
-box-shadow:0 1px 2px rgba(0, 0, 0, 0.20);
-border-radius: 3px;
-padding: 10px;
-margin-bottom: 10px;
+  background-color: #000;
+  border-radius: 3px;
+  height: 360px;
+  left: 0px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.90);
+}
+
+.map-overlay h1 {
+  font-size: 60px;
+  font-family: Arial;
+  line-height: 36px;
+  display: block;
+  margin: 0 0 10px;
+  color: #e5b908;
+  padding-left: 6px;
+  padding-right: 10px;
+  padding-top: 10px;
+  font-weight: 800;
 }
 
 .map-overlay h2 {
-line-height: 24px;
-display: block;
-margin: 0 0 10px;
+  font-size: 85px;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 36px;
+  display: block;
+  margin: 0 0 18px;
+  color: #e5b908;
+  padding-left: 6px;
+  padding-right: 10px;
+  padding-top: 40px;
+  font-weight: 800;
 }
 
-.map-overlay .legend .bar {
-height: 10px;
-width: 100%;
-background: linear-gradient(to right, #FCA107, #7F3121);
+.map-overlay h3 {
+  font-size: 15px;
+  line-height: 40px;
+  display: block;
+  margin: 0 0 8px;
+  color: #fff;
+  font-style: normal;
+  font-family: arial;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 1px;
+  font-weight: 500;
+}
+
+.map-overlay p {
+  font-size: 13px;
+  font-style: normal;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 17px;
+  display: block;
+  color: #fff;
+  padding-left: 10px;
+  padding-right: 19px;
 }
 
 .map-overlay input {
-background-color: transparent;
-display: inline-block;
-width: 100%;
-position: relative;
-margin: 0;
-cursor: ew-resize;
+  background-color: transparent;
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  margin: 0;
+  cursor: ew-resize;
+}
+
+.mapboxgl-popup {
+  max-width: 220px;
+  max-height: 2px;
+  font: 10px/10px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  padding: 1px 1px 1px;
+  position: relative;
+}
+
+h4 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  color: #000000;
+  padding: 10px;
+  line-height: 15px;
+  padding-top: 2px;
+  margin: 1px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+h5 {
+  font-size: 15px;
+  line-height: 10px;
+  display: block;
+  margin: 0 0 8px;
+  color: #fff;
+  font-style: oblique;
+  font-family: arial;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 80px;
+}
+
+h6 {
+  font-size: 15px;
+  line-height: 40px;
+  display: block;
+  margin: 0 0 8px;
+  color: #fff;
+  font-style: oblique;
+  font-family: arial;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+}
+
+h7 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  color: #000000;
+  padding: 10px;
+  line-height: 15px;
+  padding-top: 2px;
+  margin: 1px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+input[type=range]::-ms-thumb {
+  border: solid 0.125em #FFF;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background: #ADADAD;
+  margin-top: -2px;
+  box-shadow: 0 .125em .125em #ADADAD);
+}
+
+input[type=range]::-ms-fill-lower {
+  height: 13px;
+  border-radius: 10px;
+  background: linear-gradient(to right, #FFE153, white 100%, white);
+}
+
+input[type=range]::-ms-fill-upper {
+  height: 13px;
+  border-radius: 10px;
+  background: #ffffff;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+  background: linear-gradient(to right, #FFE153, white 100%, white);
+}
+
+input[type=range]:focus::-ms-fill-upper {
+  background: #ffffff;
 }
